@@ -8,7 +8,7 @@
 
 ### 분류
 
-수학(math), 정수론(number_theory), 소수 판정(primality_test)
+수학, 정수론, 소수 판정
 
 ### 문제 설명
 
