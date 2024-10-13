@@ -1,54 +1,50 @@
 #include <stdio.h>
 #include <stdlib.h>
-
-void printarr(int data[], int length){
-    
-    for (int i = 0; i < length; i++){
-        printf("%d ", data[i]);
-    }
+#include <string.h>
+#pragma warning(disable:4996)
+void  insertion_sort(int A[], int N, int K)
+{
+	int cnt = 0;
+	int num = 0;
+	for (int i = 1; i < N; i++)
+	{
+		int j = i - 1;
+		int save = A[i];
+		while (j >= 0 && save < A[j])
+		{
+			A[j + 1] = A[j];
+			cnt++;
+			if (cnt == K) {
+				//num = A[j + 1];
+				for (int k = 0; k < N; k++)
+		        {
+			        printf("%d ", A[k]);
+		        }
+				break;
+			}
+			j--;
+		}
+		if (j + 1 != i)
+		{
+			A[j + 1] = save;
+			cnt++;
+		}
+		
+	}
+	if (K > cnt) {
+		printf("-1\n");
+	}
 }
-
-
-void insertionsort(int data[], int length, int K){
-    int i = 0;
-    int j = 0;
-    int value = 0;
-    int count = 0;
-    
-    for (i = 1; i < length; i++){
-        value = data[i];
-        for (j = i - 1; j >= 0 && data[j] > value; j--){
-            if (count == K){
-                //printf("%d", data[j]);
-                printarr(data, length);
-                break;
-            }
-            data[j+1] = data[j];
-            count++;
-        }
-        if (data[i] != value){
-            count++;
-        }
-        data[j+1] = value;
-    }
-    if(count < K){
-        printf("%d", -1);
-    }
-}
-
-int main(void){
-    
-    int N, K;
-    
-    scanf("%d %d", &N, &K);
-    
-    int* data = (int*)malloc(sizeof(int)*N);
-    
-    for (int i = 0; i < N; i++){
-        scanf("%d", &data[i]);
-    }
-    
-    insertionsort(data, N, K);
-    
-    return 0;
+int main()
+{
+	int N, K, a, b;
+	int A[10000];
+	scanf("%d %d", &N, &K);
+	for (int i = 0; i < N; i++)
+	{
+		scanf("%d", &A[i]);
+	}
+	insertion_sort(A, N, K);
+	
+	return 0;
 }
