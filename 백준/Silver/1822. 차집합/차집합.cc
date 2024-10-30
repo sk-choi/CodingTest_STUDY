@@ -31,14 +31,14 @@ int main(void){
     for (int i = 0; i < A; i++){ // A원소 입력 받기
         int num;
         scanf("%d", &num);
-        assert(num > -2147483646);
+        assert(num >= -2147483648);
         arrA[i] = num;
     }
     
     for (int i = 0; i < B; i++){ // B원소 입력 받기
         int num;
         scanf("%d", &num);
-        assert(num > -2147483646);
+        assert(num >= -2147483648);
         arrB[i] = num;
     }
     
